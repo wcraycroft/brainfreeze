@@ -7,7 +7,7 @@ public class client {
 		
 		String server = "irc.twitch.tv";
 		String username = "brzbot";
-		String password = "oauth:ss2hlvp1gtg6nui42xmbcobn27kt8sy";
+		String password = "not my real pw";
 		String channel = "#bronzebets";
 		int port = 6667;
 		
