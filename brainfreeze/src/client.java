@@ -1,3 +1,8 @@
+//
+//
+//
+//
+
 import java.util.*;
 import java.io.*;
 // import java.lang.*;
@@ -12,7 +17,7 @@ public class client {
 		
 		String server = "irc.twitch.tv";
 		String username = "brzbot";
-		String password = "not real pw";
+		String password = "oauth:ss2hlvp1gtg6nui42xmbcobn27kt8sy";
 		String channel = "#bronzebets";
 		int port = 6667;
 		
@@ -27,52 +32,58 @@ public class client {
 		catch (Exception e){
 			e.printStackTrace();
 			}
-		
-		//Create data file if none exists
-		File data = new File("C:\\Users\\Will\\workspace\\brainfreeze\\data.txt");
-		if(data.exists()) {
-			System.out.println(data.getName() + " was found.");
-		}
-		else {
-			final Formatter f;
-			try {
-				f = new Formatter("data.txt");
-				System.out.println("Cannot find data file. New File created.");
-			} 
-			catch(Exception e) {
-				System.out.println("Error creating file.");
-			}
-					
-		}
-		
-		//System.out.println("Working Directory = " + System.getProperty("user.dir"));
+	
 		
 		//input gameID and run
 		String gameID = input.nextLine();
-		launchClient(gameID);
+		SpecClient specClientObject = new SpecClient();
+		specClientObject.launchClient(gameID);
 		
-	}
-	
-	public static void launchClient(String gameID) {
 		
-	try{
-			
-			ProcessBuilder pb = new ProcessBuilder("C:\\Program Files (x86)\\League of Legends\\League of Legends\\RADS\\solutions\\lol_game_client_sln\\releases\\0.0.1.41\\deploy\\League of Legends.exe",
-					"8394", "LoLLauncher.exe", " ", "spectator 216.133.234.17:8088 1XjjK3vqce3MxBKy1IdPRfz+fdubDMse 1407284402 NA1");
-			pb.directory(new File("C:\\Program Files (x86)\\League of Legends\\League of Legends\\RADS\\solutions\\lol_game_client_sln\\releases\\0.0.1.41\\deploy"));
-			Process process = pb.start();
-			
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-	}
-
+	} 
 }
+	
+	
 
 
 
-//    \\RADS\\solutions\\lol_game_client_sln\\releases\\0.0.1.41\\deploy"
-		
+
+//public static void launchClient(String gameID) {
+//		
+//	try{
+//			ProcessBuilder pb = new ProcessBuilder("C:\\Program Files (x86)\\League of Legends\\League of Legends\\RADS\\solutions\\lol_game_client_sln\\releases\\0.0.1.41\\deploy\\League of Legends.exe",
+//					"8394", "LoLLauncher.exe", " ", "spectator 216.133.234.17:8088 1XjjK3vqce3MxBKy1IdPRfz+fdubDMse 1407284402 NA1");
+//			pb.directory(new File("C:\\Program Files (x86)\\League of Legends\\League of Legends\\RADS\\solutions\\lol_game_client_sln\\releases\\0.0.1.41\\deploy"));
+//			Process process = pb.start();
+//		} catch (Exception ex) {
+//			ex.printStackTrace();
+//		}
+//	}
+//	
+//  	//Create data file if none exists
+//		File data = new File("C:\\Users\\Will\\workspace\\brainfreeze\\data.txt");
+//		if(data.exists()) {
+//			System.out.println(data.getName() + " was found.");
+//		}
+//		else {
+//			final Formatter f;
+//			try {
+//				f = new Formatter("data.txt");
+//				System.out.println("Cannot find data file. New File created.");
+//			} 
+//			catch(Exception e) {
+//				System.out.println("Error creating file.");
+//			}
+//					
+//		
+//		//System.out.println("Working Directory = " + System.getProperty("user.dir"));
+//
+//
+//
+//		\\RADS\\solutions\\lol_game_client_sln\\releases\\0.0.1.41\\deploy"
+//		
+//
+//
 //	try{
 //			
 //			String[] cmdArray = new String[5];

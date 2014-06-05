@@ -1,3 +1,8 @@
+//no need to rewrite any of this for now
+//shit's a mess and it doesn't work(SHOCKER I KNOW!!)
+//gonna rewrite it all and give MySQL a go
+//
+
 import java.io.*;
 import java.util.*;
 
@@ -58,7 +63,7 @@ public class gambler {
 			pw.println(sender + " " + funds + " " + "0");
 		}
 		closeFile();
-		return Integer.parseInt(funds);
+		return 499;
 	}
 	
 	//Places bet, positive for blue, negative for purple
@@ -85,18 +90,18 @@ public class gambler {
 	
 	
 	
-	//Find user, check funds, place bet
-	public String saveBet (String sender, String team, int bet) {
+	//Find user, check funds, place bet, returns new bet value (-1 for error)
+	public Integer saveBet (String sender, String team, int bet) {
 		if (clientObject.betsOff) {
-			return "closed";
+			return -1;
 		}
 		int funds = searchFunds(sender);
 		if (funds >= bet) {
 			String newBet = placeBet(sender, team, bet);
-			return newBet;
+			return Integer.parseInt(newBet);
 		}
 		else {
-			return "insufficient funds";
+			return -1;
 		}
 	}
 	
