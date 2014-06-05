@@ -31,13 +31,13 @@ public class IRCBot extends PircBot {
 				int bet = Integer.parseInt(message.split(" ")[1]);
 				String team = message.split(" ")[2];
 				//save bet
-				if (gamblerObject.saveBet(sender, team, bet)) {
-					//returns true if sufficient funds
-					sendMessage(channel, sender + " has bet " + bet + " gold on " + team + ".");
-				}
-				else {
-					sendMessage(channel, sender + " has insufficient gold.");
-				}
+				String reply = gamblerObject.saveBet(sender, team, bet);
+				if (reply == "closed") 
+					sendMessage(channel, sender + ": Bets are closed.");
+				else if (reply == "insufficient funds") 
+					sendMessage(channel, sender + ": you do not have sufficient gold.");
+				else 
+					sendMessage(channel, sender + " has bet " + reply + " gold on " + team + ".");
 				
 			} catch(NumberFormatException e) {
 				sendMessage(channel, "Invalid input from " + sender + ".");
@@ -46,7 +46,7 @@ public class IRCBot extends PircBot {
 		
 		//Check funds
 		if (message.equalsIgnoreCase("!gold")) {
-			sendMessage(channel, sender + " has " + gamblerObject.checkFunds(sender) + " gold.");
+			sendMessage(channel, sender + " has " + gamblerObject.searchFunds(sender) + " gold.");
 		}
 	}
 	

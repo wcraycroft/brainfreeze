@@ -1,0 +1,14 @@
+--- Log started at Tue Jun 03 22:48:17 2014
+
+000000.000|  193596.0000kb| 193596.0000kb added|  ERROR| Failed to open "DATA\Spells\SpellMetaData.txt"
+000000.000|  193692.0000kb|     96.0000kb added|  ERROR| Can't open input file DATA\Spells\SpellMetaData.txt 
+000000.022|  194108.0000kb|    416.0000kb added| ALWAYS| Global Log Level set to WARN
+000000.022|  194136.0000kb|     28.0000kb added| ALWAYS| Build Version: Version 1.0.0.152 (Dec 18 2012/04:46:37) [PUBLIC] <Releases/1_152_Vi>
+000000.108|  197772.0000kb|   3636.0000kb added|  ERROR| Failed to open "ClientZips.txt"
+000000.108|  197784.0000kb|     12.0000kb added| ALWAYS| "8394" "LoLLauncher.exe" "spectator 216.133.234.17:8088 nNHLckiSmORbKLwTqcGfcijrgK48iENe 1406698412 <id_removed>"
+000000.108|  197784.0000kb|      0.0000kb added|  ERROR| Command line does not have correct number of parameters <3>
+000000.108|  197784.0000kb|      0.0000kb added| ALWAYS| game::Shutdown
+000000.108|  197784.0000kb|      0.0000kb added| ALWAYS| ClientFacade::Stop
+000000.108|  197784.0000kb|      0.0000kb added| ALWAYS| Pre ::R3D::Perf::DinitPerfLists
+000000.108|  197784.0000kb|      0.0000kb added| ALWAYS| Post ::R3D::Perf::DinitPerfLists
+000000.108|  197784.0000kb|      0.0000kb added| ALWAYS| Exiting WinMain

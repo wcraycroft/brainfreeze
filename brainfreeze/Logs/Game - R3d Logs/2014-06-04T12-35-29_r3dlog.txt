@@ -1,0 +1,45 @@
+000000.000|    9048.0000kb|   9048.0000kb added| ALWAYS| Logging started at 2014-06-04T12:35:29.546
+000000.001|    9056.0000kb|      8.0000kb added|  ERROR| Failed to find Rads dynamic library. This should have been made available by the patcher (Rads).
+000000.013|   36228.0000kb|  27172.0000kb added|   OKAY| Unable to process data overlay file ./ToolsConfig.xml, defaulting to overlay now
+000000.013|   36228.0000kb|      0.0000kb added| ALWAYS| Data overlay start folder initialized to DATA, Content/Src
+000000.013|   36444.0000kb|    216.0000kb added| ALWAYS| Global logging level set to   WARN
+000000.013|   36588.0000kb|    144.0000kb added| ALWAYS| Build Version: Version 4.8.0.189 (May 22 2014/16:30:40) [PUBLIC] <Releases/4.8> ChangeList: 569274
+000000.094|   38208.0000kb|   1620.0000kb added| ALWAYS| Performing WSAStartup
+000000.102|   40092.0000kb|   1884.0000kb added| ALWAYS| Started System Init
+000000.102|   40128.0000kb|     36.0000kb added| ALWAYS| Maestro Init
+000000.102|   40144.0000kb|     16.0000kb added| ALWAYS| Started ReplayDownloadManager thread.
+000000.102|   40148.0000kb|      4.0000kb added| ALWAYS| ==== Fetch MetaData Phase ====
+000000.102|   40172.0000kb|     24.0000kb added| ALWAYS| ---- Waiting to fetch 5000
+000001.113|   42840.0000kb|   2668.0000kb added| ALWAYS| Maestro completed init
+000001.113|   42848.0000kb|      8.0000kb added|  ERROR| Failed to open "ClientZips.txt"
+000001.113|   42848.0000kb|      0.0000kb added| ALWAYS| Replay mode
+000001.114| ALWAYS| StartSession called
+000001.114| ALWAYS| Started Init event arguments
+000001.115| ALWAYS| Waiting until connection...
+000001.115| ALWAYS| InitRenderer() enter
+000001.115| ALWAYS| r3dRenderLayer::Init(0x00fc0e00) enter
+000001.131| ALWAYS| r3dRenderLayer::Init() exit successfully
+000001.162|  ERROR| Failed to load any localizations!
+000001.162|  ERROR| Missing file on r3dGFile open :C:/Users/Will/workspace/brainfreeze/Data/Menu/IMEConfig.xml
+000001.165|  ERROR| Failed to find IME candidate list interface from the path set to: IME_AS2.gfx
+000001.165| ALWAYS| SharedConfigPath: ../Air/preferences/
+000001.177| ALWAYS| OptionsManager::ApplyAutoPerformanceSettings()
+000001.206| ALWAYS| OS Version String: Microsoft Windows 7 Professional Service Pack 1 (build 7601), 64-bit
+000001.206| ALWAYS| CPU: GenuineIntel, Intel(R) Core(TM) i5-2500K CPU @ 3.30GHz, Intel64 Family 6 Model 42 Stepping 7, 3399 (0 core)
+000001.206| ALWAYS| Measured processor speed: 3429
+000001.206| ALWAYS| Display info: NVIDIA GeForce GTX 760 2147483648 9.18.13.3788
+000001.206| ALWAYS| Physical memory: 8589934592
+000001.206| ALWAYS| {"messageType":"hardware_information","message_body":"Hardware Info","operating_system":"Microsoft Windows 7 Professional Service Pack 1 (build 7601), 64-bit","cpu":"GenuineIntel","cpu_processor":"Intel(R) Core(TM) i5-2500K CPU @ 3.30GHz","cpu_identifier":"Intel64 Family 6 Model 42 Stepping 7","cpu_topology":4,"gpu":"NVIDIA GeForce GTX 760","video_memory":"2147483648","driver_version":"9.18.13.3788","physical_memory":8589934592}
+000001.206| ALWAYS| -----HARDWARE INFORMATION START-----
+000001.206| ALWAYS| Operating System: Microsoft Windows 7 Professional Service Pack 1 (build 7601), 64-bit
+000001.207| ALWAYS| GPU Manufacturer: NVIDIA GeForce GTX 760
+000001.207| ALWAYS| GPU Memory: 2147483648
+000001.207| ALWAYS| GPU Driver Version: 9.18.13.3788
+000001.207| ALWAYS| CPU Brand: GenuineIntel
+000001.207| ALWAYS| CPU Processor Name: Intel(R) Core(TM) i5-2500K CPU @ 3.30GHz
+000001.207| ALWAYS| CPU Identifier: Intel64 Family 6 Model 42 Stepping 7
+000001.207| ALWAYS| CPU Speed: 3399
+000001.207| ALWAYS| CPU Topology: 4 Core
+000001.207| ALWAYS| Physical memory: 8589934592
+000001.207| ALWAYS| -----HARDWARE INFORMATION END-----
+000001.207| ALWAYS| r3dRenderLayer::SetMode(XRes = 1920, YRes = 1080, BPP = 32,  Flags=256) enter

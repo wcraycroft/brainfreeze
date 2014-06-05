@@ -1,0 +1,12 @@
+000000.000|    9148.0000kb|   9148.0000kb added| ALWAYS| Logging started at 2014-06-04T10:56:21.521
+000000.001|    9156.0000kb|      8.0000kb added|  ERROR| Failed to find Rads dynamic library. This should have been made available by the patcher (Rads).
+000000.013|   36328.0000kb|  27172.0000kb added|   OKAY| Unable to process data overlay file ./ToolsConfig.xml, defaulting to overlay now
+000000.013|   36328.0000kb|      0.0000kb added| ALWAYS| Data overlay start folder initialized to DATA, Content/Src
+000000.013|   36580.0000kb|    252.0000kb added| ALWAYS| Global logging level set to   WARN
+000000.013|   36672.0000kb|     92.0000kb added| ALWAYS| Build Version: Version 4.8.0.189 (May 22 2014/16:30:40) [PUBLIC] <Releases/4.8> ChangeList: 569274
+000000.165|   38476.0000kb|   1804.0000kb added|  ERROR| Command line does not have correct number of parameters <3>
+000000.165|   38524.0000kb|     48.0000kb added| ALWAYS| Destroying the Renderer (1)
+000000.165|   38560.0000kb|     36.0000kb added| ALWAYS| game::Shutdown
+000000.165|   38564.0000kb|      4.0000kb added| ALWAYS| ClientFacade::Stop
+000000.166|   38568.0000kb|      4.0000kb added| ALWAYS| Bugsplat disabled (end of game?)
+000000.166|   38584.0000kb|     16.0000kb added| ALWAYS| Exiting WinMain
