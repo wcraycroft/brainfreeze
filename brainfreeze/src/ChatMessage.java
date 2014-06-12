@@ -15,40 +15,42 @@ public class ChatMessage {
 		setMessage(message);
 	}
 	
+	//Getters
 	public String getChannel() {
 		return channel;
-	}
-	
-	public void setChannel(String channel) {
-		this.channel = channel;
 	}
 	
 	public String getSender() {
 		return sender;
 	}
 	
-	public void setSender(String sender) {
-		this.sender = sender.substring(0, 1).toUpperCase() + sender.substring(1);
-	}
-	
 	public String getLogin() {
 		return login;
+	}
+
+	public String getHostname() {
+		return hostname;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+	
+	//Setters
+	public void setChannel(String channel) {
+		this.channel = channel;
+	}
+	
+	public void setSender(String sender) {
+		this.sender = sender.substring(0, 1).toUpperCase() + sender.substring(1);
 	}
 	
 	public void setLogin(String login) {
 		this.login = login;
 	}
 	
-	public String getHostname() {
-		return hostname;
-	}
-	
 	public void setHostname(String hostname) {
 		this.hostname = hostname;
-	}
-	
-	public String getMessage() {
-		return message;
 	}
 	
 	public void setMessage(String message) {

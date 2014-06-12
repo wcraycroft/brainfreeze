@@ -98,7 +98,8 @@ public class gambler {
 		int funds = searchFunds(sender);
 		if (funds >= bet) {
 			String newBet = placeBet(sender, team, bet);
-			return Integer.parseInt(newBet);
+			//return Integer.parseInt(newBet);
+			return bet;
 		}
 		else {
 			return -1;
