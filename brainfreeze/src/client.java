@@ -23,6 +23,7 @@ public class client {
 		
 		//start IRCBot
 		IRCBot bot = new IRCBot(username);
+		
 		 
 		try {
 			bot.setVerbose(true);
@@ -32,7 +33,8 @@ public class client {
 		catch (Exception e){
 			e.printStackTrace();
 			}
-	
+		
+		//MySQLAccess test = new MySQLAccess();
 		
 		//input gameID and run
 		System.out.println("Enter game ID: ");

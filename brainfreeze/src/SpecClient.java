@@ -14,10 +14,10 @@ public class SpecClient {
         File air = findMostRecent(base, "LolClient.exe");
         
         String lolPath = lol.getAbsolutePath();
-        String airPath = air.getAbsolutePath();
+        //String airPath = air.getAbsolutePath();
         final String GAME_DIR_PARAM = lolPath.substring(0, lolPath.lastIndexOf(File.separator));
         final String AIR_EXE_PARAM = air.getAbsolutePath();
-        final String AIR_DIR_PARAM = airPath.substring(0, airPath.lastIndexOf(File.separator));
+        //final String AIR_DIR_PARAM = airPath.substring(0, airPath.lastIndexOf(File.separator));
         //final String AIR_IMAGES_PARAM = airPath.substring(0, airPath.lastIndexOf(File.separator)) + "\\assets\\images\\";
         //final String AIR_CHAMPION_IMAGES_PARAM = airPath.substring(0, airPath.lastIndexOf(File.separator)) + "\\assets\\images\\champions\\";
         
@@ -30,7 +30,7 @@ public class SpecClient {
         File dir = new File(GAME_DIR_PARAM); 
         
         try {
-            // Run (consume output)
+            // Run (consumes output)
             Process game = Runtime.getRuntime().exec(cmd, null, dir);
             new StreamGobbler(game.getInputStream());
             new StreamGobbler(game.getErrorStream());

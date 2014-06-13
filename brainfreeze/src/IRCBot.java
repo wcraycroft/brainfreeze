@@ -57,14 +57,13 @@ public class IRCBot extends PircBot {
 		} else {
 			Integer betValue = Integer.valueOf(splitMessage[1]);
 			String team = (command == IRCCommand.BET_BLUE) ? "blue" : "purple";
-//			//adds new bet to any current bet, returns total (-1 if error)
-//			Integer newBetValue = gamblerObject.saveBet(inputMessage.getSender(), team, betValue);
-//			if (newBetValue < 0) {
-//				throw new IllegalArgumentException(inputMessage.getSender() + " was unable to place their bet.");
-//			} else {
-//				printBetMessage(inputMessage,newBetValue,command);
-//			}
-			printBetMessage(inputMessage,betValue,command);
+			//adds new bet to any current bet, returns total (-1,-2 if error)
+			Integer newBetValue = gamblerObject.saveBet(inputMessage.getSender(), team, betValue);
+			if (newBetValue < 0) {
+				System.out.println(inputMessage.getSender() + " was unable to place their bet.");
+			} else {
+				printBetMessage(inputMessage,newBetValue,command);
+			}
 		}
 	}
 	
