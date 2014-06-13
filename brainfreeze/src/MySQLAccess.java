@@ -22,7 +22,6 @@ public class MySQLAccess {
     	ResultSet rs = null;
     	int[] r = {0, 0};
     	boolean exist = false;
-    	
     	try {
     		con = DriverManager.getConnection(url, user, password);
     		pst = con.prepareStatement("SELECT * FROM Players WHERE Name = ?");
@@ -42,16 +41,12 @@ public class MySQLAccess {
     			System.out.println(name + " " + Integer.toString(r[0]) + " " + Integer.toString(r[1]));
     			return r;
     		}
-    			
-    		
     	} catch (SQLException ex) {
     		Logger lgr = Logger.getLogger(MySQLAccess.class.getName());
             lgr.log(Level.SEVERE, ex.getMessage(), ex);
             return null;
     	}
-    	//close
     	finally {
-
             try {
                 if (pst != null) {
                     pst.close();
@@ -59,7 +54,6 @@ public class MySQLAccess {
                 if (con != null) {
                     con.close();
                 }
-
             } catch (SQLException ex) {
                 Logger lgr = Logger.getLogger(MySQLAccess.class.getName());
                 lgr.log(Level.SEVERE, ex.getMessage(), ex);
@@ -71,7 +65,6 @@ public class MySQLAccess {
     public void SetNewPlayerData (String name) {
     	Connection con = null;
     	PreparedStatement pst = null;
-    	
     	try {
     		con = DriverManager.getConnection(url, user, password);    				
     		pst = con.prepareStatement("INSERT INTO Players(Id, Name, Gold, Bet) VALUES(default, ?, ?, ?)");
@@ -79,14 +72,11 @@ public class MySQLAccess {
     		pst.setInt(2, startingGold);
     		pst.setInt(3, startingBet);
     		pst.executeUpdate();
-    		
     	} catch (SQLException ex) {
     		Logger lgr = Logger.getLogger(MySQLAccess.class.getName());
             lgr.log(Level.SEVERE, ex.getMessage(), ex);
     	}
-    	//close
     	finally {
-
             try {
                 if (pst != null) {
                     pst.close();
@@ -94,7 +84,6 @@ public class MySQLAccess {
                 if (con != null) {
                     con.close();
                 }
-
             } catch (SQLException ex) {
                 Logger lgr = Logger.getLogger(MySQLAccess.class.getName());
                 lgr.log(Level.SEVERE, ex.getMessage(), ex);
@@ -106,21 +95,17 @@ public class MySQLAccess {
     public void SetPlayerBet(String name, Integer bet) {
     	Connection con = null;
     	PreparedStatement pst = null;
-    	
     	try {
     		con = DriverManager.getConnection(url, user, password);    				
     		pst = con.prepareStatement("UPDATE Players set Bet = ? where name = ?");
     		pst.setInt(1, bet);
     		pst.setString(2, name);
     		pst.executeUpdate();
-    		
     	} catch (SQLException ex) {
     		Logger lgr = Logger.getLogger(MySQLAccess.class.getName());
             lgr.log(Level.SEVERE, ex.getMessage(), ex);
     	}
-    	//close
     	finally {
-
             try {
                 if (pst != null) {
                     pst.close();
@@ -128,41 +113,6 @@ public class MySQLAccess {
                 if (con != null) {
                     con.close();
                 }
-
-            } catch (SQLException ex) {
-                Logger lgr = Logger.getLogger(MySQLAccess.class.getName());
-                lgr.log(Level.SEVERE, ex.getMessage(), ex);
-            }
-        }
-    }
-    //Update Gold
-    public void SetPlayerGold(String name, Integer gold, Integer bet) {
-    	Connection con = null;
-    	PreparedStatement pst = null;
-    	
-        try {
-    		String player = name;
-    		con = DriverManager.getConnection(url, user, password);    				
-    		pst = con.prepareStatement("UPDATE Players set Gold = ? where name = ?");
-    		pst.setInt(1, gold);
-    		pst.setString(2, name);
-    		pst.executeUpdate();
-    		
-    	} catch (SQLException ex) {
-    		Logger lgr = Logger.getLogger(MySQLAccess.class.getName());
-            lgr.log(Level.SEVERE, ex.getMessage(), ex);
-    	}
-    	//close
-    	finally {
-
-            try {
-                if (pst != null) {
-                    pst.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-
             } catch (SQLException ex) {
                 Logger lgr = Logger.getLogger(MySQLAccess.class.getName());
                 lgr.log(Level.SEVERE, ex.getMessage(), ex);
@@ -170,26 +120,66 @@ public class MySQLAccess {
         }
     }
     
-	public void prepTest() {
-		Connection con = null;
-		PreparedStatement pst = null;
-		
-        
-
+    //Update Gold
+    public void SetPlayerGold(String name, Integer gold) {
+    	Connection con = null;
+    	PreparedStatement pst = null;
         try {
-
-            String player = "bronzebets";
-            con = DriverManager.getConnection(url, user, password);
-
-            pst = con.prepareStatement("INSERT INTO Players(Name) VALUES(?)");
-            pst.setString(1, player);
-            pst.executeUpdate();
-
-        } catch (SQLException ex) {
-            Logger lgr = Logger.getLogger(MySQLAccess.class.getName());
+    		con = DriverManager.getConnection(url, user, password);    				
+    		pst = con.prepareStatement("UPDATE Players set Gold = ? where name = ?");
+    		pst.setInt(1, gold);
+    		pst.setString(2, name);
+    		pst.executeUpdate();
+    	} catch (SQLException ex) {
+    		Logger lgr = Logger.getLogger(MySQLAccess.class.getName());
             lgr.log(Level.SEVERE, ex.getMessage(), ex);
+    	}
+    	finally {
 
-        } finally {
+            try {
+                if (pst != null) {
+                    pst.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                Logger lgr = Logger.getLogger(MySQLAccess.class.getName());
+                lgr.log(Level.SEVERE, ex.getMessage(), ex);
+            }
+        }
+    }
+    
+    //Find current bets, add to gold, reset bets
+    public void CloseBets(String team) {
+    	Connection con = null;
+    	PreparedStatement pst = null;
+    	ResultSet rs = null;
+    	boolean BlueWin = (team == "blue") ? true : false;
+    	
+    	try {
+    		con = DriverManager.getConnection(url, user, password);
+    		pst = con.prepareStatement("SELECT * FROM Players");
+    		rs = pst.executeQuery();
+    		//Find bets
+    		while (rs.next()) {
+    			if (rs.getInt("Bet") == 0) {
+    				continue;
+    			}
+    			//Handle bet
+    			else  {
+    				String name = rs.getString("Name");
+    				Integer bet = (BlueWin) ? rs.getInt("Bet") : -(rs.getInt("Bet"));
+    				Integer gold = rs.getInt("Gold") + bet;
+    				SetPlayerGold(name, gold);
+    				SetPlayerBet(name, 0);
+    			}
+    		}
+    	} catch (SQLException ex) {
+    		Logger lgr = Logger.getLogger(MySQLAccess.class.getName());
+            lgr.log(Level.SEVERE, ex.getMessage(), ex);
+    	}
+    	finally {
 
             try {
                 if (pst != null) {
@@ -203,56 +193,6 @@ public class MySQLAccess {
                 Logger lgr = Logger.getLogger(MySQLAccess.class.getName());
                 lgr.log(Level.SEVERE, ex.getMessage(), ex);
             }
-        }
+        }		
     }
-	
-}	
-	
-	
-	
-	
-	
-	
-	
-//	public void MySQLTest() {
-//	
-//	Connection con = null;
-//	Statement st = null;
-//    ResultSet rs = null;
-//
-//    String url = "jdbc:mysql://localhost:3306/gamblerdb";
-//    String user = "testuser";
-//    String password = "test623";
-//
-//    try {
-//        con = DriverManager.getConnection(url, user, password);
-//        st = con.createStatement();
-//        rs = st.executeQuery("SELECT VERSION()");
-//
-//        if (rs.next()) {
-//            System.out.println(rs.getString(1));
-//        }
-//
-//    } catch (SQLException ex) {
-//        Logger lgr = Logger.getLogger(MySQLAccess.class.getName());
-//        lgr.log(Level.SEVERE, ex.getMessage(), ex);
-//
-//    } finally {
-//        try {
-//            if (rs != null) {
-//                rs.close();
-//            }
-//            if (st != null) {
-//                st.close();
-//            }
-//            if (con != null) {
-//                con.close();
-//            }
-//
-//        } catch (SQLException ex) {
-//            Logger lgr = Logger.getLogger(MySQLAccess.class.getName());
-//            lgr.log(Level.WARNING, ex.getMessage(), ex);
-//        }
-//      }
-//    }
-//}
+}    

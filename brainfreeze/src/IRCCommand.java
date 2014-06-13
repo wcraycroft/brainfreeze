@@ -1,10 +1,7 @@
-//
-//
-//
-//
+
 
 public enum IRCCommand {
-	BET_BLUE("!betblue"), BET_PURPLE("!betpurple"), GOLD("!gold"), HELLO("!hello"), NOT_COMMAND(" ");
+	BET_BLUE("!betblue"), BET_PURPLE("!betpurple"), GOLD("!gold"), HELLO("!hello"), CLOSE_BLUE("!winblue"), CLOSE_PURPLE("!winpurple"), NOT_COMMAND(" ");
     private final String command;
 
     @Override

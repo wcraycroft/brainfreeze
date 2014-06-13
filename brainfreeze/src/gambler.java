@@ -2,11 +2,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-//
-//
-//
-//
-
 public class gambler {
 	
 	client clientObject = new client();
@@ -25,7 +20,7 @@ public class gambler {
 		}
 	}
 	
-	//Find user, check funds, update bet, returns new bet value (-1 for error)
+	//Find user, check funds, update bet, returns new abs bet value
 	public Integer saveBet (String sender, String team, int bet) {
 		if (clientObject.betsOff) {
 			//Bets off error
@@ -35,7 +30,7 @@ public class gambler {
 		Integer gold = playerData[0];
 		Integer oldBet = playerData[1];
 		//positive bet for blue, negative for purple, make sure to return abs
-		Integer newBet = ((team == "blue") ? bet : bet * -1) + oldBet;
+		Integer newBet = ((team == "blue") ? bet : -bet) + oldBet;
 		if (gold >= Math.abs(newBet)) {
 			MySQLObject.SetPlayerBet(sender, newBet);
 			return Math.abs(newBet);
@@ -48,7 +43,7 @@ public class gambler {
 
 	//Find bets, change funds
 	public void closeBets (String team) {
-		
+		MySQLObject.CloseBets(team);
 	}
 }
 

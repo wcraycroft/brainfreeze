@@ -1,7 +1,3 @@
-//
-//
-//
-//
 
 import org.jibble.pircbot.*;
 
@@ -39,6 +35,12 @@ public class IRCBot extends PircBot {
 		case HELLO:
 			helloMessageAction(inputMessage);
 			break;
+		case CLOSE_BLUE:
+			closeBlueAction(inputMessage);
+			break;
+		case CLOSE_PURPLE:
+			closePurpleAction(inputMessage);
+			break;
 		}
 	}
 	
@@ -68,7 +70,6 @@ public class IRCBot extends PircBot {
 	}
 	
 	private void printBetMessage(ChatMessage inputMessage, int betValue, IRCCommand command) {
-		
 		String team = (command == IRCCommand.BET_BLUE) ? "blue" : "purple";
 		sendMessage(inputMessage.getChannel(), inputMessage.getSender() + " has bet " + betValue + " gold on " + team + " team.");
 	}
@@ -79,6 +80,18 @@ public class IRCBot extends PircBot {
 	
 	private void helloMessageAction(ChatMessage inputMessage) {
 		sendMessage(inputMessage.getChannel(), "Hi " + inputMessage.getSender() + "!");
+	}
+	
+	private void closeBlueAction(ChatMessage inputMessage) {
+		if (inputMessage.getSender() == "Bronzebets") {
+			gamblerObject.closeBets("blue");
+		}
+	}
+	
+	private void closePurpleAction(ChatMessage inputMessage) {
+		if (inputMessage.getSender() == "Bronzebets") {
+			gamblerObject.closeBets("purple");
+		}
 	}
 	
 	private IRCCommand parseCommand(String inputCommand) {
@@ -92,6 +105,10 @@ public class IRCBot extends PircBot {
 			returnValue = IRCCommand.GOLD;
 		} else if (inputCommand.startsWith("!hello")) {
 			returnValue = IRCCommand.HELLO;
+		} else if (inputCommand.startsWith("!winblue")) {
+			returnValue = IRCCommand.CLOSE_BLUE;
+		} else if (inputCommand.startsWith("!winpurple")) {
+			returnValue = IRCCommand.CLOSE_PURPLE;
 		}
 		return returnValue;
 	}

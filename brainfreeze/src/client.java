@@ -1,7 +1,3 @@
-//
-//
-//
-//
 
 import java.util.*;
 import java.io.*;
@@ -23,7 +19,6 @@ public class client {
 		
 		//start IRCBot
 		IRCBot bot = new IRCBot(username);
-		
 		 
 		try {
 			bot.setVerbose(true);
